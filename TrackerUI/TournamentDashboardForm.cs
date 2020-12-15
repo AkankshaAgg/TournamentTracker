@@ -18,11 +18,32 @@ namespace TrackerUI
         public TournamentDashboardForm()
         {
             InitializeComponent();
+            WireUpLists();
         }
 
         private void loadExistingTournamentDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void WireUpLists()
+        {
+            loadExistingTournamentDropDown.DataSource = tournaments;
+            loadExistingTournamentDropDown.DisplayMember = "TournamentName";
+        }
+
+        private void createTournamentButton_Click(object sender, EventArgs e)
+        {
+            CreateTournamentForm frm = new CreateTournamentForm();
+            frm.Show();
+        }
+
+        private void loadTournamentButton_Click(object sender, EventArgs e)
+        {
+            TournamentModel tm = (TournamentModel)loadExistingTournamentDropDown.SelectedItem;
+            TournamentViewerForm frm = new TournamentViewerForm(tm);
+
+            frm.Show();
         }
     }
 }
