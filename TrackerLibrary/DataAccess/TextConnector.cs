@@ -90,7 +90,9 @@ namespace TrackerLibrary.DataAccess
             model.Id = currentId;
             model.SaveRoundsToFile();
             tournaments.Add(model);
-            tournaments.SaveToTournamentFile(GlobalConfig.TournamentFile);
+            tournaments.SaveToTournamentFile();
+
+            TournamentLogic.updateTournamentResults(model);
         }
 
         public List<PersonModel> GetPerson_All()
