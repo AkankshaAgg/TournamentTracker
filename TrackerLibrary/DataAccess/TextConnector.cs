@@ -11,6 +11,17 @@ namespace TrackerLibrary.DataAccess
 {
     public class TextConnector : IDataConnection
     {
+        public void CompleteTournament(TournamentModel model)
+        {
+            List<TournamentModel> tournaments = GlobalConfig.TournamentFile.FullFilePath().LoadFile().ConvertToTournamentModels();
+            
+            tournaments.Remove(model);
+
+            tournaments.SaveToTournamentFile();
+
+            TournamentLogic.updateTournamentResults(model);
+        }
+
         //private const string PrizesFile = "PrizeModels.csv";
         //private const string PeopleFile = "PersonModels.csv";
         //private const string TeamFile = "TeamModels.csv";
