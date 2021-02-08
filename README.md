@@ -1,6 +1,6 @@
 # TournamentTracker
 
-A tournament tracker that sets up a schedule for teams to play each other in a single elimination style match-ups.
+A tournament tracker that sets up a schedule for teams to play each other in a single elimination style match-ups using C#.
 
 Useful for Office ping pong tournaments, league playoffs, basketball leagues and many more.
 
